@@ -1,0 +1,38 @@
+
+bot:
+  token: null
+  xp-cooldown-in-seconds: 0
+  de-leveling-countdown-in-seconds: 0
+  rank-card-background-url: "https://eurostonequartzcountertops.com/wp-content/uploads/2020/04/ALUMINUM-GREY-GLOSS1.jpg"
+  rank-card-color: null
+  media-only-channels:
+    - channel id 1
+    - channel id 2
+  levelRoleMap:
+    level1: roleId
+    level2: roleId
+    level3: roleId
+
+database:
+  host: null
+  name: null
+  user: null
+  password: null
+
+spring:
+  datasource:
+    hikari:
+      username: "${database.user}"
+      password: "${database.password}"
+      driver-class-name: "com.mysql.cj.jdbc.Driver"
+      auto-commit: true
+      connection-test-query: select 1
+      maximum-pool-size: 20
+    url: "jdbc:mysql://${database.host}/${database.name}"
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+    hibernate:
+      ddl-auto: update
+    show-sql: true
